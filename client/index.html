@@ -16,9 +16,20 @@
     <script src="bower_components/react/react.js"></script>
   </head>
   <body>
-
+    <div id='app'></div>
     <!-- your scripts -->
     <script type="text/javascript" src="scripts/config.js"></script>
     <script type="text/jsx" src="scripts/app.js"></script>
+    <script src="https://connect.soundcloud.com/sdk/sdk-3.0.0.js"></script>
+<script>
+SC.initialize({
+  client_id: '45faeeace3c6e710a6a0eb54b4d17410'
+});
+
+var track_url = 'http://soundcloud.com/forss/flickermood';
+SC.oEmbed(track_url, { auto_play: true }).then(function(oEmbed) {
+  console.log('oEmbed response: ', oEmbed);
+});
+</script>
   </body>
 </html>
